@@ -73,6 +73,11 @@ namespace _01_WebApiAutores
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Configuraciones v1"));
             }
 
+            //Descomentamos esto, se carga el appsettings.json de production(antes debe ir a las propiedades del proyecto en la seccion de depuracion cambiar
+            ////el valor de enviroment por production)
+            //app.UseSwagger();
+            //app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Configuraciones v1"));
+
             app.UseHttpsRedirection();
 
             app.UseRouting();

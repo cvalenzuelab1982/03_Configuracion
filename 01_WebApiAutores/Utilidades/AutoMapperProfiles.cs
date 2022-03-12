@@ -56,7 +56,7 @@ namespace _01_WebApiAutores.Utilidades
                 resultado.Add(new AutorDTO()
                 {
                     Id = autorLibro.AutorId,
-                    Nombre = (autorLibro.Autor != null) ? autorLibro.Autor.Nombre : "sin autor"
+                    Nombre = autorLibro.Autor.Nombre
                 });
             }
 

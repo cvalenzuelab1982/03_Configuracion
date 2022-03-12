@@ -53,10 +53,12 @@ namespace _01_WebApiAutores.Controllers
             }
 
             //Validando que exista el autor que el usuario selecciono parar registrarlo con el Libro
-            var autoresIds = await _context.Autores.Where(autorBD => libroCreacionDTO.AutoresIds.Contains(autorBD.Id)).Select(x => x.Id).ToListAsync();
+            var autores = await _context.Autores.Where(autorBD => libroCreacionDTO.AutoresIds.Contains(autorBD.Id)).ToListAsync();
+
+            var autoresIds = autores.Select(x => x.Id).ToList();
 
             //mostrar error si los conteos son diferentes
-            if(libroCreacionDTO.AutoresIds.Count != autoresIds.Count)
+            if (libroCreacionDTO.AutoresIds.Count != autoresIds.Count)
             {
                 return BadRequest("No existe uno de los autores enviados");
             }
